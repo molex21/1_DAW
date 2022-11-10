@@ -5,11 +5,17 @@
   personas y al menos tres descendientes.Se debe   mostrar en pantalla el registro guardado de cada uno de ellos.
 */
 
+
+/*
+Falta hacer una funcion para automatizar la toma de valores para las personas y solucionar valores incorrectos por tipo de variable.
+*/ 
+
 #include <stdio.h>
 #include <conio.h>
 #include <iostream>
 using namespace std;
 
+// Declaración de dato estructurado persona
 struct hijo
 {
     int dni;
@@ -25,8 +31,9 @@ struct persona
     string email;
     hijo descendiente[3]{NULL};
 };
+
 /*
-int personasInputs(int opcion) {
+void personasInputs(int opcion) {
    char seleccionado;
    if (opcion == 1)
    {
@@ -41,18 +48,21 @@ int personasInputs(int opcion) {
    {
     seleccionado = 'c';
    }
+cout << "NIF: ", cin >> seleccionado.nif;
 
 
 }
 */
+
 int main()
 {
     persona a, b, c;
-    string respuesta; // almacena la respuesta de si quiere introducir hijos
-    int numHijos;     // almacena la respuesta de cuantos hijos desea intoducir
-    char valor;
+    string respuesta;   // almacena la respuesta de si quiere introducir hijos
+    int numHijos;       // almacena la respuesta de cuantos hijos desea intoducir
+    char valor;         // almacena la respuesta de que persona se desea mostrar
     bool salir = false; // Variable usada para salir del bucle que permite ver los datos de cada persona
 
+    // Bucle que pide los datos de las 3 personas dependiendo del contador se introducen en cada persona
     for (int i = 1; i <= 3; i++)
     {
 
@@ -66,6 +76,7 @@ int main()
             cout << "\nDesea introducir hijos? (si / no): ", cin >> respuesta;
             if (respuesta == "si")
             {
+                // Si se desea introducir hijos se pide el número y se rellena cada posición con dni y nombre
                 cout << "\nCuantos hijos desea introducir? (maximo 3): ", cin >> numHijos;
                 while (4 > numHijos <= 0)
                 {
@@ -128,6 +139,7 @@ int main()
         }
     }
 
+    // Bucle que permite mostrar individualmente los datos de cada pesona hasta que el usuario salga dal programa
     while (!salir)
     {
         cout << "\nEscribe a, b o c dependiendo de la persona de la que desees ver la informacion y cualquier otra cosa para salir del programa: ", cin >> valor;
@@ -140,6 +152,7 @@ int main()
             cout << "\nEmail: " << a.email;
             for (int i = 0; i < 3; i++)
             {
+                // Se comprueba si existen hijos y si lo hace se muestran los datos de cada uno, si no existen se muestra un mensaje
                 if (a.descendiente[i].dni)
                 {
                     cout << "\n\nDatos del hijo " << i + 1 << " son: ";
