@@ -25,7 +25,7 @@ int main()
     // Mientras que no se introduzcan 10 numeros se repetirá el bucle
     while (totalNumeros < 10)
     {
-        cout << "Introduce un numero: \n";
+        cout << "Introduce un numero: ";
         cin >> numero; // obtengo un valor y lo meto en la variabel numero
 
         if (totalNumeros == 0) // en el perimer valor que se introduce declara que es el número máximo y minimo

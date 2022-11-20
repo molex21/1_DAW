@@ -72,5 +72,5 @@ int main()
     cin >> divisor;
     resultado = divide(dividendo, divisor);
 
-    cout << resultado;
+    cout <<"El resultado de la división de "<< dividendo << " / " << divisor<< " es: " << resultado;
 }
