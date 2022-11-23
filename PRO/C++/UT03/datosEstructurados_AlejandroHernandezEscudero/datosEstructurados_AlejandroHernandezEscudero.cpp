@@ -12,9 +12,7 @@
 #include <iostream>
 using namespace std;
 
-
-
-familia a, b, c;
+familia a, b, c, d, e;
 
 bool salir = false; // Variable usada para salir del bucle que permite ver los datos de cada persona
 char valor;         // Almacena la respuesta de que persona se desea mostrar
@@ -22,7 +20,7 @@ char valor;         // Almacena la respuesta de que persona se desea mostrar
 int main()
 {
     // Bucle que pide los datos de las 3 personas dependiendo del contador se introducen en cada persona
-    for (int i = 1; i <= 3; i++)
+    for (int i = 1; i <= 5; i++)
     {
         cout << "\nIntroduce los datos de la familia " << i << ":\n";
         switch (i) // cada ciclo del bucle se llama a la fución responsable de almacenar los inputs de los datos de las familias
@@ -33,8 +31,14 @@ int main()
         case 2:
             familiasInputs(&b);
             break;
-        default:
+        case 3:
             familiasInputs(&c);
+            break;
+        case 4:
+            familiasInputs(&d);
+            break;
+        default:
+            familiasInputs(&e);
             break;
         }
     }
@@ -42,7 +46,7 @@ int main()
     // Bucle que permite mostrar individualmente los datos de cada pesona hasta que el usuario salga dal programa
     while (!salir)
     {
-        cout << "\n\nEscribe a, b o c dependiendo de la persona de la que desees ver la informacion y cualquier otra cosa para salir del programa: ", cin >> valor;
+        cout << "\n\nEscribe a, b, c, d o e dependiendo de la persona de la que desees ver la informacion y cualquier otra cosa para salir del programa: ", cin >> valor;
         switch (valor)
         {
         case 'a':
@@ -55,6 +59,14 @@ int main()
 
         case 'c':
             familiasDisplay(&c, &valor);
+            break;
+
+        case 'd':
+            familiasDisplay(&d, &valor);
+            break;
+
+        case 'e':
+            familiasDisplay(&e, &valor);
             break;
 
         default:
