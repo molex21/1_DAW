@@ -13,7 +13,7 @@ using namespace std;
     
 int main()
 {
-    cout<<"#####-----Practica 3.1 Alejandro Hernandez Escudero-----#####";
+    cout<<"#####-----Practica 3.2 Alejandro Hernandez Escudero-----#####"<< endl;
 
    
 
