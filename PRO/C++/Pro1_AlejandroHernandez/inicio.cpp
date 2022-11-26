@@ -21,7 +21,6 @@ a. Intercambiar posiciones entre dos elementos.
 */
 
 #include <stdio.h>
-#include <conio.h>
 #include <iostream>
 using namespace std;
 #ifdef _WIN32
@@ -29,8 +28,70 @@ using namespace std;
 #endif
 #include "pro1_alejandrohernandez.h"
 
+bool salir = false; // variable para salir del programa
+int opcion;         // variable para guardar la seleccioón del usuario en el menú
+cita citaEnCurso;
+cola colaMedico;
+int cargar_cita;
+
 
 int main()
 {
-    
+
+    cout << "#####-----Proyecto1 Alejandro Hernandez Escudero-----#####" << endl << endl;
+    do
+    {
+        
+        mostrarCola(&colaMedico);
+         
+        //mostrar menu
+        cout << endl << "#####-----MENU-----#####" << endl;
+        cout << "1. Cargar cita" << endl;
+        cout << "2. Eliminar cita" << endl;
+        cout << "3. Mover cita" << endl;
+        cout << "4. Salir" << endl;
+        cout << "########################" << endl << endl;
+        cout << "Elija una opcion: ", cin >> opcion;  //obtener la opcion
+
+        switch (opcion)
+        {
+        case 1:
+            cargar_cita=cargarCita(&colaMedico);
+            system("cls");
+            if (cargar_cita == 0)
+            {
+                cout<<"Cita creada correctamente"<< endl ;
+            }
+            else
+            {
+                cout<<"Error en la creación de cita"<< endl ;
+            }
+            
+            break;
+
+        case 2:
+            eliminarCita();
+            system("cls");
+            break;
+
+        case 3:
+            moverCita();
+            system("cls");
+            break;
+
+        case 4:
+            cout << "Saliendo..."<< endl;
+            salir = true;
+            break;
+
+        default:
+            cout << "La opcion seleccionada no se encuentra, pruebe otra vez."<< endl;
+            break;
+        }
+
+
+
+
+    } while (salir == false);
 }
+

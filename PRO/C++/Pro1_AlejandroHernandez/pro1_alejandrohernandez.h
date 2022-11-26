@@ -1,12 +1,9 @@
-hay espacio?
+#include "pro1_alejandrohernandez.cpp"
 
-esta llena o vacía
+int cargarCita(cola *cola);
 
-introducir datos en un nodo ausiliar 
+int eliminarCita();
 
-donde se quiere colar
+int moverCita();
 
-mover todo para atrás y dejar el hueco
-mater nodo uauxiliar 
-
-array-> tipo de dato que lo contenga, posicion y longitud
+void mostrarCola(cola *cola);
