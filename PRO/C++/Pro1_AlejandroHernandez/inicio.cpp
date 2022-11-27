@@ -32,66 +32,121 @@ bool salir = false; // variable para salir del programa
 int opcion;         // variable para guardar la seleccioón del usuario en el menú
 cita citaEnCurso;
 cola colaMedico;
-int cargar_cita;
-
+int cargar_cita;   // variable que recoge el resultado de la funcion de cargar cita
+int eliminar_cita; // variable que recoge el resultado de de la funcion de eliminar cita
+int mover_cita; // variable que recoge el resultado de de la funcion de mover cita
 
 int main()
 {
-
-    cout << "#####-----Proyecto1 Alejandro Hernandez Escudero-----#####" << endl << endl;
+    system("cls");
+    cout << "#####-----Proyecto1 Alejandro Hernandez Escudero-----#####" << endl
+         << endl;
     do
     {
-        
+        // funcion para mostrar la cola si contiene algun elemento
         mostrarCola(&colaMedico);
-         
-        //mostrar menu
-        cout << endl << "#####-----MENU-----#####" << endl;
+
+        // mostrar menu
+        cout << endl
+             << "#####-----MENU-----#####" << endl;
         cout << "1. Cargar cita" << endl;
         cout << "2. Eliminar cita" << endl;
         cout << "3. Mover cita" << endl;
         cout << "4. Salir" << endl;
-        cout << "########################" << endl << endl;
-        cout << "Elija una opcion: ", cin >> opcion;  //obtener la opcion
+        cout << "########################" << endl
+             << endl;
+        cout << "Elija una opcion: ", cin >> opcion; // obtener la opcion
 
         switch (opcion)
         {
         case 1:
-            cargar_cita=cargarCita(&colaMedico);
             system("cls");
+            mostrarCola(&colaMedico);
+            cout << endl
+                 << "+++++++++  CARGAR CITA  +++++++++" << endl;
+            cargar_cita = cargarCita(&colaMedico);
+            system("cls");
+
+            // mensajes al usuario dependiendo de si la fuccionalidad se ha realizado o no
             if (cargar_cita == 0)
             {
-                cout<<"Cita creada correctamente"<< endl ;
+                cout << "++++Cita creada correctamente+++" << endl
+                     << endl;
             }
             else
             {
-                cout<<"Error en la creación de cita"<< endl ;
+                cout << "++++Error al crear la cita, cola llena++++" << endl
+                     << endl;
             }
-            
             break;
 
         case 2:
-            eliminarCita();
             system("cls");
+            mostrarCola(&colaMedico);
+            cout << endl
+                 << "+++++++++  ELIMINAR CITA  +++++++++" << endl;
+            eliminar_cita = eliminarCita(&colaMedico);
+            system("cls");
+
+            // mensajes al usuario dependiendo de si la fuccionalidad se ha realizado o no
+            if (eliminar_cita == 0)
+            {
+                cout << "++++Cita eliminada correctamente+++" << endl
+                     << endl;
+            }else if (eliminar_cita == 2)
+            {
+                cout << "++++Error al eliminar la cita, la posicion elegida no existe++++" << endl
+                     << endl;
+            }
+            else
+            {
+                cout << "++++Error al eliminar la cita, cola vacia++++" << endl
+                     << endl;
+            }
             break;
 
         case 3:
-            moverCita();
             system("cls");
+            
+            mostrarCola(&colaMedico);
+            cout << endl << "+++++++++  MOVER CITA  +++++++++" << endl;
+            mover_cita = moverCita(&colaMedico);
+            system("cls");
+            if (mover_cita == 0)
+            {
+                cout << "++++Operacion realizada correctamente+++" << endl
+                     << endl;
+            }
+            else if (mover_cita == 1)
+            {
+                cout << "++++Error al intercambiar la cita, la cola no posee suficientes elementos para intercambiarla++++" << endl
+                     << endl;
+            }else if (mover_cita == 2)
+            {
+                cout << "++++Error al intercambiar la cita, alguna de las posiciones para intercambiar no es valida++++" << endl
+                     << endl;
+            }
+            else if (mover_cita == 3)
+            {
+                cout << "++++Error al colar amigo, la posicion elegida no existe++++" << endl
+                     << endl;
+            }else{
+                cout << "++++Error al colar amigo, la cola se encuentra llena++++" << endl
+                     << endl;
+            }
+            
+            
             break;
 
         case 4:
-            cout << "Saliendo..."<< endl;
+            cout << "Saliendo..." << endl;
             salir = true;
             break;
 
         default:
-            cout << "La opcion seleccionada no se encuentra, pruebe otra vez."<< endl;
+            cout << "La opcion seleccionada no se encuentra, pruebe otra vez." << endl;
             break;
         }
 
-
-
-
     } while (salir == false);
 }
-

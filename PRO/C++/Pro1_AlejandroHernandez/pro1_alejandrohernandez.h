@@ -2,8 +2,8 @@
 
 int cargarCita(cola *cola);
 
-int eliminarCita();
+int eliminarCita(cola *cola);
 
-int moverCita();
+int moverCita(cola *cola);
 
 void mostrarCola(cola *cola);
