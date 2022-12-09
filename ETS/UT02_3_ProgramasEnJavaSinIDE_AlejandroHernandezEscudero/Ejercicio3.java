@@ -1,18 +1,16 @@
 import java.util.Scanner;
 
 public class Ejercicio3 {
-    public static void main(String args[]) {
+	public static void main (String [] args){
+        int Radio;  
+	  double Area;   
+        System.out.println("Ingresa la longitrud del radio: ");
         Scanner teclado = new Scanner(System.in);
-		int radio = 0;
-		float resultado = 0;
+        Radio = teclado.nextInt();
+        Area = Math.PI * Math.pow(Radio, 2) ; 
+        System.out.println("El area del circulo es de " + Area);
+               
+     }
 
-		System.out.println("Escribe el radio del circulo: ");
-		radio = teclado.nextInt();
-
-        resultado =  3.1416 * Math.pow(radio,2);
-
-
-
-    }
 
 }

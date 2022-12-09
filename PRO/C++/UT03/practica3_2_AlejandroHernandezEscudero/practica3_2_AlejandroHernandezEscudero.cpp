@@ -16,21 +16,22 @@ int opcion;
 string nombreFicheroEntrada = "entrada.txt";
 string nombreFicheroSalida = "salida.txt";
 int numeroLineasFichero;
-returnTwoInt resultadoBuscarFichero;
 
 int main()
 {
     cout << "#####-----Practica 3.2 Alejandro Hernandez Escudero-----#####" << endl;
 
-    do //mostrar menú hasta que se seleccione salir
+    do // mostrar menú hasta que se seleccione salir
     {
-        
-        cout << endl << "---------------MENU---------------" << endl;
+
+        cout << endl
+             << "---------------MENU---------------" << endl;
         cout << "1. Contar el numero de lineas leidas y mostrarlo en  pantalla" << endl;
         cout << "2. Buscar una subcadena en el fichero y mostrar el numero de veces que aparece y el numero de la linea de cada ocurrencia" << endl;
         cout << "3. Generar un fichero 'salida.txt' con el contenido de 'entrada.txt' sim espacios en blanco y mostrarlo por pantalla" << endl;
         cout << "4. Salir" << endl;
-        cout  << endl << "Elige lo que deseas hacer con el fichero: ";
+        cout << endl
+             << "Elige lo que deseas hacer con el fichero: ";
 
         cin >> opcion;
 
@@ -38,24 +39,23 @@ int main()
         {
         case 1:
             numeroLineasFichero = contarLineas(nombreFicheroEntrada);
-            cout << endl << "En el fichero "<< nombreFicheroEntrada << " hay "  << numeroLineasFichero << " lineas" << endl;
+            cout << endl
+                 << "En el fichero " << nombreFicheroEntrada << " hay " << numeroLineasFichero << " lineas" << endl;
             break;
         case 2:
-           resultadoBuscarFichero = buscarEnFichero(nombreFicheroEntrada);
-           cout << "2..." << endl;
+            buscarEnFichero(nombreFicheroEntrada);
             break;
         case 3:
-            generarFichero(nombreFicheroEntrada ,nombreFicheroSalida);
+            generarFichero(nombreFicheroEntrada, nombreFicheroSalida);
             break;
         case 4:
             cout << "Saliendo..." << endl;
             break;
 
         default:
-        cout << "Opcion no esxistente, prueba otra vez" << endl;
+            cout << "Opcion no esxistente, prueba otra vez" << endl;
             break;
         }
 
     } while (opcion != 4);
-    
 }

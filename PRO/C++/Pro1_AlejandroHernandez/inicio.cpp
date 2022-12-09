@@ -28,21 +28,36 @@ using namespace std;
 #endif
 #include "pro1_alejandrohernandez.h"
 
-bool salir = false; // variable para salir del programa
-int opcion;         // variable para guardar la seleccioón del usuario en el menú
-cita citaEnCurso;
-cola colaMedico;
-int cargar_cita;   // variable que recoge el resultado de la funcion de cargar cita
-int eliminar_cita; // variable que recoge el resultado de de la funcion de eliminar cita
-int mover_cita; // variable que recoge el resultado de de la funcion de mover cita
+time_t tiempo_inicio = 0;
+bool citacumplida = false;
+bool salir = false;  // variable para salir del programa
+int opcion;          // variable para guardar la seleccioón del usuario en el menú
+cita citaEnCurso;    // variable que almacena la cita en consulta actual
+cita previoUrgencia; // variable que almacena la cita en consulta antes de la entrada de una urgencia
+cola colaMedico;     // variable que almacena la cola
+int cargar_cita;     // variable que recoge el resultado de la funcion de cargar cita
+int eliminar_cita;   // variable que recoge el resultado de de la funcion de eliminar cita
+int mover_cita;      // variable que recoge el resultado de de la funcion de mover cita
 
 int main()
 {
+
     system("cls");
     cout << "#####-----Proyecto1 Alejandro Hernandez Escudero-----#####" << endl
          << endl;
     do
     {
+
+        citacumplida = timer(&citaEnCurso.tiempo);
+
+        if (citacumplida)
+        {
+            citaEnCurso.posicion = 0;
+        }
+
+        // funcion para mostrar la cita en curso si contiene algun elemento
+        citaEnCurso = mostrarCitaEnCurso(&colaMedico, &citaEnCurso, &previoUrgencia);
+
         // funcion para mostrar la cola si contiene algun elemento
         mostrarCola(&colaMedico);
 
@@ -52,7 +67,9 @@ int main()
         cout << "1. Cargar cita" << endl;
         cout << "2. Eliminar cita" << endl;
         cout << "3. Mover cita" << endl;
-        cout << "4. Salir" << endl;
+        cout << "4. Urgencia" << endl;
+        cout << "5. Refrescar" << endl;
+        cout << "6. Salir" << endl;
         cout << "########################" << endl
              << endl;
         cout << "Elija una opcion: ", cin >> opcion; // obtener la opcion
@@ -93,7 +110,8 @@ int main()
             {
                 cout << "++++Cita eliminada correctamente+++" << endl
                      << endl;
-            }else if (eliminar_cita == 2)
+            }
+            else if (eliminar_cita == 2)
             {
                 cout << "++++Error al eliminar la cita, la posicion elegida no existe++++" << endl
                      << endl;
@@ -107,9 +125,10 @@ int main()
 
         case 3:
             system("cls");
-            
+
             mostrarCola(&colaMedico);
-            cout << endl << "+++++++++  MOVER CITA  +++++++++" << endl;
+            cout << endl
+                 << "+++++++++  MOVER CITA  +++++++++" << endl;
             mover_cita = moverCita(&colaMedico);
             system("cls");
             if (mover_cita == 0)
@@ -121,7 +140,8 @@ int main()
             {
                 cout << "++++Error al intercambiar la cita, la cola no posee suficientes elementos para intercambiarla++++" << endl
                      << endl;
-            }else if (mover_cita == 2)
+            }
+            else if (mover_cita == 2)
             {
                 cout << "++++Error al intercambiar la cita, alguna de las posiciones para intercambiar no es valida++++" << endl
                      << endl;
@@ -130,23 +150,32 @@ int main()
             {
                 cout << "++++Error al colar amigo, la posicion elegida no existe++++" << endl
                      << endl;
-            }else{
+            }
+            else
+            {
                 cout << "++++Error al colar amigo, la cola se encuentra llena++++" << endl
                      << endl;
             }
-            
-            
+
             break;
 
         case 4:
+            previoUrgencia = entradaUrgencia(&citaEnCurso);
+            break;
+
+        case 5:
+
+            break;
+
+        case 6:
             cout << "Saliendo..." << endl;
             salir = true;
             break;
 
         default:
-            cout << "La opcion seleccionada no se encuentra, pruebe otra vez." << endl;
+            cout << endl
+                 << "La opcion seleccionada no se encuentra, pruebe otra vez." << endl;
             break;
         }
-
     } while (salir == false);
 }

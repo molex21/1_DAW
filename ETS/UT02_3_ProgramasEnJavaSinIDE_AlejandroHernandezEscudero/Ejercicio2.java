@@ -25,47 +25,38 @@ public class Ejercicio2{
 			System.out.println("Opcion 4 -> Dividir");
       		System.out.println("Elige una opción:");
 			opcion = teclado.nextInt();
-			System.out.println(opcion);
 			switch (opcion) {
 
     				case 1:
-
              		resultado= num1 + num2;
 				operacion= "suma";
 				break;
 
     				case 2:
-
              		resultado= num1 - num2;
 				operacion= "resta";
 				break;
     				
 				case 3:
-
              		resultado= num1 * num2;
 				operacion= "multiplicacion";
 				break;
 
     				case 4:
-
              		resultado= num1 / num2;
 				operacion= "division";
 				break;
 
     				default:
-
              		System.out.println("Opcion no valida, prueba otra vez");
 				break;
 
 			}
 
     		} while(opcion <1 || opcion >4);
-
 		
-
 		System.out.println("Hola "+nombre+" el resultado de la "+operacion+ " de los dos numeros es "+resultado);
 
 }
-
 
 }

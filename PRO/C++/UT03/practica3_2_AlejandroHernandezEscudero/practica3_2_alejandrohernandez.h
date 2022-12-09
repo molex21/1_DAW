@@ -3,7 +3,7 @@
 
 int contarLineas(string nombreFicheroEntrada);
 
-returnTwoInt buscarEnFichero(string nombreFicheroEntrada);
+void buscarEnFichero(string nombreFicheroEntrada);
 
 void generarFichero(string nombreFicheroEntrada , string nombreFicheroSalida);
 
