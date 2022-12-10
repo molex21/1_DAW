@@ -26,11 +26,7 @@ using namespace std;
 #ifdef _WIN32
 #include <windows.h>
 #endif
-#include "pro1_alejandrohernandez.h" 
-
-//DEFINICION DE LOS COLORES DE FONDO USADOS PARA LOS MENSAJES EN PANTALLA
-#define SUCESSB "\e[42m"
-#define ERRORB "\e[41m"
+#include "pro1_alejandrohernandez.h"
 
 time_t tiempo_inicio = 0;
 bool citacumplida = false;
@@ -91,12 +87,12 @@ int main()
             // mensajes al usuario dependiendo de si la fuccionalidad se ha realizado o no
             if (cargar_cita == 0)
             {
-                cout << "++++Cita creada correctamente+++" << endl
+                cout << SUCESSB "++++Cita creada correctamente+++" NC << endl
                      << endl;
             }
             else
             {
-                cout << "++++Error al crear la cita, cola llena++++" << endl
+                cout << ERRORB "++++Error al crear la cita, cola llena++++" NC << endl
                      << endl;
             }
             break;
@@ -112,17 +108,17 @@ int main()
             // mensajes al usuario dependiendo de si la fuccionalidad se ha realizado o no
             if (eliminar_cita == 0)
             {
-                cout << "++++Cita eliminada correctamente+++" << endl
+                cout << SUCESSB "++++Cita eliminada correctamente+++" NC << endl
                      << endl;
             }
             else if (eliminar_cita == 2)
             {
-                cout << "++++Error al eliminar la cita, la posicion elegida no existe++++" << endl
+                cout << ERRORB "++++Error al eliminar la cita, la posicion elegida no existe++++" NC << endl
                      << endl;
             }
             else
             {
-                cout << "++++Error al eliminar la cita, cola vacia++++" << endl
+                cout << ERRORB "++++Error al eliminar la cita, cola vacia++++" NC << endl
                      << endl;
             }
             break;
@@ -137,27 +133,27 @@ int main()
             system("cls");
             if (mover_cita == 0)
             {
-                cout << "++++Operacion realizada correctamente+++" << endl
+                cout << SUCESSB "++++Operacion realizada correctamente+++" NC << endl
                      << endl;
             }
             else if (mover_cita == 1)
             {
-                cout << "++++Error al intercambiar la cita, la cola no posee suficientes elementos para intercambiarla++++" << endl
+                cout << ERRORB "++++Error al intercambiar la cita, la cola no posee suficientes elementos para intercambiarla++++" NC << endl
                      << endl;
             }
             else if (mover_cita == 2)
             {
-                cout << "++++Error al intercambiar la cita, alguna de las posiciones para intercambiar no es valida++++" << endl
+                cout << ERRORB "++++Error al intercambiar la cita, alguna de las posiciones para intercambiar no es valida++++" NC << endl
                      << endl;
             }
             else if (mover_cita == 3)
             {
-                cout << "++++Error al colar amigo, la posicion elegida no existe++++" << endl
+                cout << ERRORB "++++Error al colar amigo, la posicion elegida no existe++++" NC << endl
                      << endl;
             }
             else
             {
-                cout << "++++Error al colar amigo, la cola se encuentra llena++++" << endl
+                cout << ERRORB "++++Error al colar amigo, la cola se encuentra llena++++" NC << endl
                      << endl;
             }
 
@@ -179,8 +175,9 @@ int main()
             break;
 
         default:
+            system("cls");
             cout << endl
-                 << "La opcion seleccionada no se encuentra, pruebe otra vez." << endl;
+                 << ERRORB "La opcion seleccionada no se encuentra, pruebe otra vez." NC << endl;
             break;
         }
     } while (salir == false);

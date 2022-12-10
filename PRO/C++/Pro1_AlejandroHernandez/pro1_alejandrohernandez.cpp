@@ -8,6 +8,11 @@ using namespace std;
 #include <windows.h>
 #endif
 
+// DEFINICION DE LOS COLORES DE FONDO USADOS PARA LOS MENSAJES EN PANTALLA
+#define SUCESSB "\e[42m"
+#define ERRORB "\e[41m"
+#define NC "\e[0m"
+
 struct usuario
 {
     int nif;
@@ -200,7 +205,7 @@ string motivoConsulta()
 
         default:
             cout << endl
-                 << "Opcion no valida: " << endl;
+                 << ERRORB "Opcion no valida: " NC << endl;
         }
         salir == true;
     } while (salir == false);
@@ -218,11 +223,11 @@ void mostrarCola(cola *mostrarCola)
         {
             if (i == 0)
             {
-                cout << "[ " << mostrarCola->citas[i].posicion << ". " << mostrarCola->citas[i].paciente.nif << " ]";
+                cout << "[ POSICION: " << mostrarCola->citas[i].posicion << "-> NIF: " << mostrarCola->citas[i].paciente.nif << " ]";
             }
             else
             {
-                cout << " - [ " << mostrarCola->citas[i].posicion << ". " << mostrarCola->citas[i].paciente.nif << " ]";
+                cout << " - [ POSICION: " << mostrarCola->citas[i].posicion << "-> NIF: " << mostrarCola->citas[i].paciente.nif << " ]";
             }
         }
         cout << endl
@@ -390,7 +395,7 @@ int colarAmigo(cola *cola1)
         default:
         {
             cout << endl
-                 << "Opcion no valida, pruebe otra vez: " << endl;
+                 << ERRORB "Opcion no valida, pruebe otra vez: " NC << endl;
             break;
         }
         }
@@ -510,7 +515,7 @@ int moverCita(cola *cola)
 
         default:
             cout << endl
-                 << "Opcion no valida, pruebe otra vez: " << endl;
+                 << ERRORB "Opcion no valida, pruebe otra vez: " NC << endl;
             break;
         }
 
