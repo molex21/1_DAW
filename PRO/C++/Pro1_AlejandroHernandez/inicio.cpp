@@ -26,7 +26,11 @@ using namespace std;
 #ifdef _WIN32
 #include <windows.h>
 #endif
-#include "pro1_alejandrohernandez.h"
+#include "pro1_alejandrohernandez.h" 
+
+//DEFINICION DE LOS COLORES DE FONDO USADOS PARA LOS MENSAJES EN PANTALLA
+#define SUCESSB "\e[42m"
+#define ERRORB "\e[41m"
 
 time_t tiempo_inicio = 0;
 bool citacumplida = false;
@@ -160,11 +164,13 @@ int main()
             break;
 
         case 4:
+            system("cls");
             previoUrgencia = entradaUrgencia(&citaEnCurso);
+            system("cls");
             break;
 
         case 5:
-
+            system("cls");
             break;
 
         case 6:

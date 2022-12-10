@@ -53,18 +53,16 @@ cita mostrarCitaEnCurso(cola *cola, cita *citaEnCurso, cita *previoUrgencia)
 
     if (citaEnCurso->posicion != 1 && previoUrgencia->paciente.nif) // si existia alguien en la consulta antes de la entrada de una urgencia tiene preferencia de entrada
     {
-        cout << "entro";
-        getch();
         CitaEnCurso.motivo = previoUrgencia->motivo;
         CitaEnCurso.paciente = previoUrgencia->paciente;
         CitaEnCurso.posicion = previoUrgencia->posicion;
         CitaEnCurso.tiempo = (previoUrgencia->tiempo + time(NULL) + 5); // le dejo el timepo que le quedaba de consulta más 5 segundos para que continue la consulta
-        previoUrgencia->paciente.nif = NULL;                             // establezco la variable auxiliar a vacía para que no entre más en el if
-                                                                         // mostrar por pantalla la cita en consulta
+        previoUrgencia->paciente.nif = NULL;                            // establezco la variable auxiliar a vacía para que no entre más en el if
+                                                                        // mostrar por pantalla la cita en consulta
         cout << "###-----Cita en consulta-----###" << endl
              << endl;
 
-        cout << "[ " << CitaEnCurso.paciente.nif << " ]";
+        cout << "[ NIF: " << CitaEnCurso.paciente.nif << " -> Motivo: " << CitaEnCurso.motivo << " ]";
 
         cout << endl
              << endl
@@ -85,8 +83,8 @@ cita mostrarCitaEnCurso(cola *cola, cita *citaEnCurso, cita *previoUrgencia)
 
             for (int i = numcita; i <= longitudCola; i++) // se realizan las siquientes fucnionalidades desde la cita posterir a la que se quiere eliminar hasta la última cita registrada
             {
-                citaAux = cargarAux(&cola->citas[i], numcita - 1); // llamo a la fucnion de cargar una cita auxiliar y como parametros le paso la cita que deseo copiar con la nueva posición que debe tener
-                cola->citas[numcita - 1] = citaAux;                // se introduce la cita auxiliar en la posición de la que se quería eliminar
+                citaAux = cargarAux(&cola->citas[i], i - 1); // llamo a la fucnion de cargar una cita auxiliar y como parametros le paso la cita que deseo copiar con la nueva posición que debe tener
+                cola->citas[i - 1] = citaAux;                // se introduce la cita auxiliar en la posición de la que se quería eliminar
             }
 
             cola->longActual = longitudCola - 1; // establezco la longitud a la total menos uno para no mostrar la ultima
@@ -95,7 +93,7 @@ cita mostrarCitaEnCurso(cola *cola, cita *citaEnCurso, cita *previoUrgencia)
             cout << "###-----Cita en consulta-----###" << endl
                  << endl;
 
-            cout << "[ " << CitaEnCurso.paciente.nif << " ]";
+            cout << "[ NIF: " << CitaEnCurso.paciente.nif << " -> Motivo: " << CitaEnCurso.motivo << " ]";
 
             cout << endl
                  << endl
@@ -111,7 +109,7 @@ cita mostrarCitaEnCurso(cola *cola, cita *citaEnCurso, cita *previoUrgencia)
             cout << "###-----Cita en consulta-----###" << endl
                  << endl;
 
-            cout << "[ " << citaEnCurso->paciente.nif << " ]";
+            cout << "[ NIF: " << CitaEnCurso.paciente.nif << " -> Motivo: " << CitaEnCurso.motivo << " ]";
 
             cout << endl
                  << endl
@@ -126,7 +124,7 @@ cita mostrarCitaEnCurso(cola *cola, cita *citaEnCurso, cita *previoUrgencia)
             cout << "###-----Cita en consulta-----###" << endl
                  << endl;
 
-            cout << "[ " << citaEnCurso->paciente.nif << " ]";
+            cout << "[ NIF: " << CitaEnCurso.paciente.nif << " -> Motivo: " << CitaEnCurso.motivo << " ]";
 
             cout << endl
                  << endl
