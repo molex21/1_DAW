@@ -66,10 +66,11 @@ int main()
              << "#####-----MENU-----#####" << endl;
         cout << "1. Cargar cita" << endl;
         cout << "2. Eliminar cita" << endl;
-        cout << "3. Mover cita" << endl;
+        cout << "3. Mover cita (colar amigo)" << endl;
         cout << "4. Urgencia" << endl;
-        cout << "5. Refrescar" << endl;
-        cout << "6. Salir" << endl;
+        cout << "5. Vista detallada" << endl;
+        cout << "6. Refrescar" << endl;
+        cout << "7. Salir" << endl;
         cout << "########################" << endl
              << endl;
         cout << "Elija una opcion: ", cin >> opcion; // obtener la opcion
@@ -161,15 +162,26 @@ int main()
 
         case 4:
             system("cls");
+            cout << endl
+                 << "+++++++++  ENTRADA DE URGENCIA  +++++++++" << endl;
             previoUrgencia = entradaUrgencia(&citaEnCurso);
             system("cls");
             break;
 
         case 5:
             system("cls");
+            cout << endl
+                 << "+++++++++  VISTA DETALLADA  +++++++++" << endl;
+            mostrarCola(&colaMedico);
+            vistaDetallada(&colaMedico);
+            system("cls");
             break;
 
         case 6:
+            system("cls");
+            break;
+
+        case 7:
             cout << "Saliendo..." << endl;
             salir = true;
             break;

@@ -52,7 +52,27 @@ void buscarEnFichero(string nombreFicheroEntrada)
     {
         cout << "Fichero no encontrado";
     }
+/* WHILE PREUBAS
+    while (!fichero.eof()) // mientras el fichero no se acabe
+    {
+        
+        numcoincidencia = 0;
+        while (getline(fichero, linea)) // leer cada linea
+        {
+const string t(busqueda);
 
+cout<<posicion<<endl;
+cout<<linea.find(busqueda, posicion)<<endl;
+            while ((linea.find(busqueda)) <= linea.size())
+            {
+                numcoincidencia++;
+                cout<<linea.find(busqueda)<<endl;
+                cout<<linea.size()<<endl;
+                //posicion += t.size();
+            }
+            cout << "Se encontraron: " << numcoincidencia << " coincidencia/s en la linea " << contador << endl;
+        }
+    }*/
     while (!fichero.eof())//mientras el fichero no se acabe
     {
         numcoincidencia = 0;

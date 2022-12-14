@@ -402,6 +402,38 @@ int colarAmigo(cola *cola1)
     } while (opcion != 1 || opcion != 2);
 };
 
+void vistaDetallada(cola *cola)
+{
+    int posicion = 0;
+    cout << endl
+         << "Escribe la posicion del paciente que desea revisar: ",
+        cin >> posicion;
+    do
+    {
+        cout << endl << endl
+             << ERRORB "Opcion no valida." NC;
+        cout << endl
+             << "Escribe la posicion del paciente que desea revisar : ", cin >> posicion;
+    } while (posicion < 1 || posicion > cola->longActual); // me aseguro que el usuario introduce una posición correcta
+
+    cout << endl
+         << "- Posicion: " << posicion;
+    cout << endl
+         << "- NIF: " << cola->citas[posicion - 1].paciente.nif;
+    cout << endl
+         << "- Nombre: " << cola->citas[posicion - 1].paciente.nombre;
+    cout << endl
+         << "- Apellidos: " << cola->citas[posicion - 1].paciente.apellidos;
+    cout << endl
+         << "- Motivo: " << cola->citas[posicion - 1].motivo;
+    cout << endl
+         << "- Timepo: " << cola->citas[posicion - 1].tiempo << "s";
+    cout << endl
+         << endl
+         << "(Pulse cualquier tecla para volver al menu)";
+    getch();
+}
+
 // FUNCIONES PRINCIPALES
 int cargarCita(cola *cola)
 {
