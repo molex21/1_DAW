@@ -22,7 +22,7 @@ class operacionesConDecimales {
 			System.out.print("Elige una opcion: ");
 			opcion = teclado.nextInt();
 			switch (opcion) {
-				case 1:
+				case 1:hola
 					System.out.println("La suma de " + numero + " + " + numero2 + " es : " +);
 					break;
 
